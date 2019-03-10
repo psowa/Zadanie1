@@ -1,7 +1,11 @@
 ﻿<!DOCTYPE html>
 
 <head>
+    <meta charset="utf-8" />
+
     <title>Google</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <style type="text/css">
         body {
             margin: 0;
@@ -9,10 +13,20 @@
             overflow: hidden;
             font-family: sans-serif;
             height: 100%;
+            width: 100%
+        }
+
+        .grid-container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 40px auto 40px 40px;
+            grid-template-areas: "navigate navigate navigate" "main main main" "country country country" "footer footer footer";
         }
 
         header {
             width: 100%;
+            grid-area: navigate;
         }
 
 
@@ -26,7 +40,7 @@
                 width: auto;
                 margin: 10px;
                 text-align: center;
-                font-size: 13px;
+                font-size: 14px;
                 color: #404040;
                 padding: 4px 5px;
             }
@@ -44,6 +58,10 @@
             color: inherit;
         }
 
+        #Aps {
+            color: #404040;
+        }
+
         .nav_links a:hover {
             text-decoration: underline;
             color: #757272;
@@ -59,7 +77,12 @@
 
         /* main */
 
-        .google #logo {
+        main {
+            text-align: center;
+            grid-area: main;
+        }
+
+        .google_logo {
             text-align: center;
             clear: both;
             display: block;
@@ -72,174 +95,206 @@
             text-align: center;
         }
 
+        .search {
+            padding: 6px 6px 6px 30px;
+        }
+
         #search {
-            width: 500px;
-            line-height: 32px;
+            width: 550px;
+            line-height: 50px;
             padding: 20px 10px;
             border-radius: 20px;
+            border: 1px solid #DFE1E5;
+            text-indent: 30px;
+            cursor: pointer;
+            font-size: 14px;
         }
+
+        #loupe {
+            position: relative;
+            z-index: 3;
+            right: -20px;
+            top: 3px;
+            width: 0px;
+            color: #1C6CC7;
+        }
+
+
+
+        #microphone {
+            position: relative;
+            z-index: 1;
+            left: -30px;
+            top: 3px;
+            width: 0px;
+            color: #1C6CC7;
+        }
+
+        #keybord {
+            position: relative;
+            z-index: 1;
+            left: -60px;
+            top: 3px;
+            width: 0px;
+            color: grey;
+        }
+
 
         .form #search {
             padding: 0 8px;
         }
 
+
+        #search:hover {
+            box-shadow: 0 0 5px rgba(33,33,33, .2);
+        }
+
         .buttons {
             text-align: center;
             padding-top: 30px;
-            margin-bottom: 250px;
         }
 
             .buttons #szukaj {
-                width: 140px;
+                background-color: #F3F3F3;
+                margin-right: 25px;
+                padding: 0 16px;
+                border-radius: 2px;
+                color: #6F6F6F;
+                font-size: 14px;
+                border: 0;
                 line-height: 35px;
-                border-radius: 3px;
-                background: #f2f2f2;
-                border: #e4e4e4;
-                text-align: center;
-                color: #666666;
-                margin-right: 7px;
+                margin: 11px 4px;
+                border: 1px solid #F3F3F3;
+                cursor: pointer;
             }
 
             .buttons #szczesliwy_traf {
-                width: 140px;
+                background-color: #F3F3F3;
+                margin-right: 25px;
+                padding: 0 16px;
+                border-radius: 2px;
+                color: #6F6F6F;
+                font-size: 14px;
+                border: 0;
                 line-height: 35px;
-                border-radius: 3px;
-                background: #f2f2f2;
-                border: #e4e4e4;
-                text-align: center;
-                color: #666666;
-                margin-right: 7px;
+                margin: 11px 4px;
+                border: 1px solid #F3F3F3;
+                cursor: pointer;
             }
 
         #szukaj:hover {
-            box-shadow: 1px 1px 5px #999;
+            border: 0.5px solid #999;
         }
 
         #szczesliwy_traf:hover {
-            box-shadow: 1px 1px 5px #999;
+            border: 1px solid #999;
         }
+
 
         /* stopka */
-        .container {
-            background: #f2f2f2;
-            border-top: solid 2px #e4e4e4;
-            width: 100%;
-            display: grid;
-            grid-template-columns: auto auto auto 20fr auto auto auto;
-            grid-template-rows: auto auto;
-        }
-
         .Polska {
-            grid-column: 1/7;
-            grid-row: 1;
-            color: #666666;
-            font-size: 16px;
-            margin-bottom: 10px;
-            padding-top: 10px;
-            padding-left: 15px;
+            grid-area: country;
+            color: #6F6F6F;
+            font-size: 15px;
+            padding-left: 27px;
+            margin: 0;
+            line-height: 30px;
+            background-color: #F2F2F2;
+            border-top: solid 1px #E4E4E4;
         }
 
-        .reklama {
-            grid-column: 1;
-            grid-row: 2;
-            padding-left: 15px;
+
+        footer {
+            background-color: #F2F2F2;
+            border-top: solid 1px #E4E4E4;
+            line-height: 35px;
+            grid-area: footer;
+            width: 100%;
         }
 
-        .dla_firm {
-            grid-column: 2;
-            grid-row: 2;
-        }
-
-        .o_nas {
-            grid-column: 3;
-            grid-row: 2;
-        }
-
-        .prywatnosc {
-            grid-column: 5;
-            grid-row: 2;
-        }
-
-        .warunki {
-            grid-column: 6;
-            grid-row: 2;
-        }
-
-        .ustawienia {
-            grid-column: 7;
-            grid-row: 2;
-        }
-
-        .foot_links {
-            display: inline;
-            color: #666666;
-            font-size: 13px;
-            padding-right: 10px;
-            height: 30px;
-        }
-
-            .foot_links:hover {
+            footer a:hover {
                 text-decoration: underline;
+            }
+
+        .left {
+            padding-left: 27px;
+        }
+
+            .left a {
+                color: #6F6F6F;
+                text-decoration: none;
+                font-size: 13px;
+                padding-right: 15px;
+            }
+
+        .right {
+            float: right;
+            padding-right: 27px;
+            text-decoration: none;
+        }
+
+            .right a {
+                color: #6F6F6F;
+                text-decoration: none;
+                font-size: 13px;
+                padding-left: 15px;
             }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="flex">
-                <div class="nav_links" id="gmail"><a href="https://mail.google.com/mail/?tab=wm">Gmail</a></div>
-                <div class="nav_links"><a href="https://www.google.pl/imghp?hl=pl&tab=wi">Grafika</a></div>
-                <div class="nav_links"><a href="https://www.google.pl/intl/pl/about/products?tab=wh">Aplikacje</a></div>
-                <div id="logowanie"><a href="https://accounts.google.com/ServiceLogin/signinchooser?hl=pl&passive=true&continue=https%3A%2F%2Fwww.google.pl%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Zaloguj się</a></div>
-            </div>
-        </nav>
-    </header>
+    <div class="grid-container">
+        <header>
+            <nav>
+                <div class="flex">
+                    <div class="nav_links" id="gmail"><a href="https://mail.google.com/mail/?tab=wm">Gmail</a></div>
+                    <div class="nav_links"><a href="https://www.google.pl/imghp?hl=pl&tab=wi">Grafika</a></div>
+                    <div class="nav_links" id="Aps"><a href="https://www.google.pl/intl/pl/about/products?tab=wh"><i class="fas fa-th"></i></a></div>
+                    <div id="logowanie"><a href="https://accounts.google.com/ServiceLogin/signinchooser?hl=pl&passive=true&continue=https%3A%2F%2Fwww.google.pl%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Zaloguj się</a></div>
+                </div>
+            </nav>
+        </header>
 
-    <!-- LOGO GOOGLE -->
-    <div class="google">
-        <a href="" id="logo"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></a>
+        <!-- LOGO GOOGLE -->
+        <main>
+            <div class="google_logo">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
+            </div>
+
+
+            <!-- WYSZUKIWARKA -->
+            <div class="form">
+                <form>
+                    <i id="loupe" class="fas fa-search"></i>
+                    <input type="text" id="search" placeholder="Szukaj" />
+                    <i id="microphone" class="fas fa-microphone"></i>
+                    <i id="keybord" class="fas fa-keyboard"></i>
+                </form>
+            </div>
+
+
+            <!-- PRZYCISKI -->
+            <div class="buttons">
+                <button class="mdl-button mdl-js-button mdl-button--fab" id="szukaj">Szukaj w Google</button>
+                <button class="mdl-button mdl-js-button mdl-button--fab" id="szczesliwy_traf">Szczęśliwy traf</button>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div class="Polska">Polska</div>
+        <footer>
+            <span class="left">
+                <a href="#">Reklamuj się</a>
+                <a href="#">Dla firm</a>
+                <a href="#">O nas</a>
+            </span>
+            <span class="right">
+                <a href="#">Prywatność</a>
+                <a href="#">Warunki</a>
+                <a href="#">Ustawienia</a>
+            </span>
+
+        </footer>
     </div>
-
-    <!-- WYSZUKIWARKA -->
-    <div class="form">
-        <form>
-            <label for="form-search"></label>
-            <input type="text" id="search" />
-        </form>
-    </div>
-
-    <!-- PRZYCISKI -->
-    <div class="buttons">
-        <input type="submit" value="Szukaj w Google" id="szukaj">
-        <input type="submit" value="Szczęśliwy traf" id="szczesliwy_traf">
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <foot class="container">
-            <div class="Polska">Polska</div>
-            <link class=" foot_links">
-            <div class="reklama">
-                <a href="https://ads.google.com/intl/pl_pl/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1" class="foot_links">Reklamuj się</a>
-            </div>
-            <div class="dla_firm">
-                <a href="https://www.google.pl/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none" class="foot_links">Dla firm</a>
-            </div>
-            <div class="o_nas">
-                <a href="https://about.google/intl/pl_pl/?utm_source=google-PL&utm_medium=referral&utm_campaign=hp-footer&fg=1" class="foot_links">O nas</a>
-            </div>
-            <div class="prywatnosc">
-                <a href="https://policies.google.com/privacy?hl=pl&gl=pl" class="foot_links">Prywatność</a>
-            </div>
-            <div class="warunki">
-                <a href="https://policies.google.com/terms?hl=pl&gl=pl" class="foot_links">Warunki</a>
-            </div>
-            <div class="ustawienia">
-                <a href="#" class="foot_links">Ustawienia</a>
-            </div>
-            </li>
-
-        </foot>
-    </footer>
 </body>
