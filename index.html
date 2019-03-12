@@ -28,8 +28,6 @@
             width: 100%;
             grid-area: navigate;
         }
-
-
         /*nagłówek*/
         .flex {
             display: flex;
@@ -74,9 +72,7 @@
         #logowanie {
             color: #fff; /*kolor dla logowania*/
         }
-
         /* main */
-
         main {
             text-align: center;
             grid-area: main;
@@ -119,8 +115,6 @@
             color: #1C6CC7;
         }
 
-
-
         #microphone {
             position: relative;
             z-index: 1;
@@ -139,11 +133,9 @@
             color: grey;
         }
 
-
         .form #search {
             padding: 0 8px;
         }
-
 
         #search:hover {
             box-shadow: 0 0 5px rgba(33,33,33, .2);
@@ -154,7 +146,7 @@
             padding-top: 30px;
         }
 
-            .buttons #szukaj {
+           .buttons #szukaj {
                 background-color: #F3F3F3;
                 margin-right: 25px;
                 padding: 0 16px;
@@ -183,14 +175,14 @@
             }
 
         #szukaj:hover {
-            border: 0.5px solid #999;
+            border: 0.5px solid;
+            border-color: #999999;
         }
 
         #szczesliwy_traf:hover {
-            border: 1px solid #999;
+            border: 0.5px solid;
+            border-color: #999999;
         }
-
-
         /* stopka */
         .Polska {
             grid-area: country;
@@ -202,7 +194,6 @@
             background-color: #F2F2F2;
             border-top: solid 1px #E4E4E4;
         }
-
 
         footer {
             background-color: #F2F2F2;
@@ -244,7 +235,7 @@
 
 <body>
     <div class="grid-container">
-        <header>
+                <header>
             <nav>
                 <div class="flex">
                     <div class="nav_links" id="gmail"><a href="https://mail.google.com/mail/?tab=wm">Gmail</a></div>
@@ -275,8 +266,8 @@
 
             <!-- PRZYCISKI -->
             <div class="buttons">
-                <button class="mdl-button mdl-js-button mdl-button--fab" id="szukaj">Szukaj w Google</button>
-                <button class="mdl-button mdl-js-button mdl-button--fab" id="szczesliwy_traf">Szczęśliwy traf</button>
+                <button class="mdc-button_label" id="szukaj">Szukaj w Google</button>
+                <button class="mdc-button_label" id="szczesliwy_traf">Szczęśliwy traf</button>
 
             </div>
         </main>
