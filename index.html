@@ -2,7 +2,6 @@
 
 <head>
     <meta charset="utf-8" />
-
     <title>Google</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
@@ -76,6 +75,10 @@
         main {
             text-align: center;
             grid-area: main;
+            align-items: center;
+            grid-column: 2;
+            grid-row: 2/4;
+           
         }
 
         .google_logo {
@@ -89,6 +92,22 @@
 
         .form {
             text-align: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-around;
+            align-content: center;
+        }
+
+        .flex_2 {
+            display: flex;
+            width: 550px;
+            border-radius: 20px;
+            border: 1px solid #DFE1E5;
+            text-align: center;
+            padding: 5px 20px;
+            
         }
 
         .search {
@@ -96,48 +115,47 @@
         }
 
         #search {
-            width: 550px;
-            line-height: 50px;
+            display: flex;
+            line-height: 40px;
             padding: 20px 10px;
-            border-radius: 20px;
-            border: 1px solid #DFE1E5;
             text-indent: 30px;
             cursor: pointer;
             font-size: 14px;
+            border: none transparent;
+            padding-right: 10px;
+            padding-left: 10px;
+            flex: 1;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 30px;
+
+            
         }
 
         #loupe {
-            position: relative;
-            z-index: 3;
-            right: -20px;
-            top: 3px;
-            width: 0px;
+            display: flex;
             color: #1C6CC7;
+            align-self: center;
         }
 
         #microphone {
-            position: relative;
-            z-index: 1;
-            left: -30px;
-            top: 3px;
-            width: 0px;
+            display: flex;
             color: #1C6CC7;
+            align-self: center;
+            padding-right: 4px;
         }
 
         #keybord {
-            position: relative;
-            z-index: 1;
-            left: -60px;
-            top: 3px;
-            width: 0px;
+            display: flex;
             color: grey;
+            align-self: center;
         }
 
         .form #search {
             padding: 0 8px;
         }
 
-        #search:hover {
+        .flex_2:hover {
             box-shadow: 0 0 5px rgba(33,33,33, .2);
         }
 
@@ -146,7 +164,7 @@
             padding-top: 30px;
         }
 
-           .buttons #szukaj {
+            .buttons #szukaj {
                 background-color: #F3F3F3;
                 margin-right: 25px;
                 padding: 0 16px;
@@ -230,12 +248,36 @@
                 font-size: 13px;
                 padding-left: 15px;
             }
+
+        table {
+            position: relative;
+            /* right: -500px;*/
+            border-radius: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            width: 580px;
+            font-size: 14px;
+            border: 1px solid #DFE1E5;
+            cursor: pointer;
+            margin-right: auto;
+            margin-left: auto;
+            border-top: none;
+        }
+
+        .autocomplete-result {
+            padding-bottom: 3px;
+        }
+
+        
+
+
     </style>
 </head>
 
 <body>
     <div class="grid-container">
-                <header>
+        <header>
             <nav>
                 <div class="flex">
                     <div class="nav_links" id="gmail"><a href="https://mail.google.com/mail/?tab=wm">Gmail</a></div>
@@ -255,13 +297,18 @@
 
             <!-- WYSZUKIWARKA -->
             <div class="form">
-                <form>
+                <div class="flex_2">
                     <i id="loupe" class="fas fa-search"></i>
-                    <input type="text" id="search" placeholder="Szukaj" />
+                    <input v-model="inputContent" id="search">
                     <i id="microphone" class="fas fa-microphone"></i>
                     <i id="keybord" class="fas fa-keyboard"></i>
-                </form>
+
+                </div>
             </div>
+            <v-autocompleter v-bind:input="inputContent" v-if="inputContent"></v-autocompleter>
+
+
+
 
 
             <!-- PRZYCISKI -->
@@ -288,4 +335,7 @@
 
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="animals.js"></script>
+    <script src="main2.js"></script>
 </body>
