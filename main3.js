@@ -23,7 +23,8 @@ new Vue({
     data: function () {
         return {
             inputContent: "",
-            showAutocompleter: this.inputContent ? true : false
+            showAutocompleter: this.inputContent ? true : false 
+
         }
     }
 })
