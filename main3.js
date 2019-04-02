@@ -6,7 +6,6 @@ Vue.component('v-autocompleter', {
             let results = window.animals.filter(function (word) {
                 return pattern.test(word);
             });
-
             return results.length > 7 ? results.slice(0, 6) : results;
         }
     },
